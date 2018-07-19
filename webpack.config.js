@@ -1,36 +1,43 @@
-var path = require('path')
-var postCSSImport = require('postcss-import')
-var postCSSNesting = require('postcss-nesting')
-var autoprefixer = require('autoprefixer')
-var htmlWebpacPlugin = require('html-webpack-plugin')
+const path = require('path')
+const postCSSImport = require('postcss-import')
+const postCSSNested = require('postcss-nested')
+const autoprefixer = require('autoprefixer')
+const HtmlWebpacPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const config = {
   mode: 'development',
   entry: './src/js/index.js',
   output: {
-    path: path.resolve(__dirname, 'public/dist'),
-    filename: 'index.js',
-    publicPath: 'dist'
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'index.js'
   },
   module: {
     rules: [
       {
         test: /\.js$/,
+        exclude: /node_modules/,
         use: ['babel-loader']
       },
       {
         test: /\.ejs$/,
-        use: 'ejs-loader'
+        use: 'ejs-compiled-loader'
       },
       {
         test: /\.(css|pcss)$/,
         use: [
-          'style-loader',
-          'css-loader',
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1
+            }
+          },
           {
             loader: 'postcss-loader',
             options: {
-              plugins: () => [postCSSNesting(), postCSSImport(), autoprefixer()]
+              ident: 'postcss',
+              plugins: () => [postCSSImport(), postCSSNested(), autoprefixer()]
             }
           }
         ]
@@ -38,15 +45,26 @@ const config = {
     ]
   },
   resolve: {
+    extensions: ['.js', '.ejs', '.css', '.pcss'],
     alias: {
-      component: path.resolve(__dirname, 'src/component/')
+      components: path.resolve(__dirname, 'src/components/'),
+      js: path.resolve(__dirname, 'src/js/'),
+      css: path.resolve(__dirname, 'src/css/')
     }
   },
-  plugins: [new htmlWebpacPlugin()],
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'app.css'
+    }),
+    new HtmlWebpacPlugin({
+      filename: 'index.html',
+      template: path.join(__dirname, 'src/components/pages/index.ejs')
+    })
+  ],
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     port: 8080
   }
 }
 
-export default config
+module.exports = config
