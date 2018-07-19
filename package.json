@@ -1,0 +1,22 @@
+{
+  "name": "question_cards",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/naritashin/question_cards.git",
+  "author": "Shin Narita <triplfjump1417@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "autoprefixer": "^9.0.0",
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.3",
+    "ejs-loader": "^0.3.1",
+    "jquery": "^3.3.1",
+    "postcss": "^7.0.0",
+    "postcss-import": "^11.1.0",
+    "postcss-loader": "^2.1.6",
+    "postcss-nesting": "^6.0.0",
+    "webpack": "^4.16.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-serve": "^2.0.2"
+  }
+}
