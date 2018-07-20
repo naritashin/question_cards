@@ -1,10 +1,12 @@
-<article class="card-wrap <%= className %>">
-  <h2>問題<%- 'number' %></h2>
-  <h3><%- 'title' %></h3>
-  <div>
-    <%- 'description' %>
+<article id="<%= idName %>" class="card-wrap <%= className %>" data-question="<%= number %>">
+  <h2 class="question-number">問題 <%= number %></h2>
+  <h3 class="question-title"><%= title %></h3>
+  <div class="question-content">
+    <%= description %>
   </div>
-  <div>
-    buttons
-  </div>
+  <ul class="question-btn-list">
+    <% buttons.forEach(function(value, i) {%>
+    <li><button data-answer="<%= i + 1 %>"><%= value %></button></li>
+    <%}) %>
+  </ul>
 </article>

@@ -4,11 +4,34 @@ import 'css/app'
 import Card from 'components/organisms/Card'
 import Navigation from 'components/organisms/Navigation'
 
-const urlHash = () => {
-  return parse(location.href).hash
+import questions from '../service/questions'
+
+const urlHash = href => {
+  return parse(href).hash
 }
 
-console.log(urlHash())
+$('header').append(Navigation)
 
-$('header').append(Navigation({ className: 'current' }))
-$('main').append(Card({ className: '' }))
+questions.forEach((question, i) => {
+  $('main').append(
+    Card({
+      idName: question.idName,
+      className: i === 0 ? 'active' : '',
+      number: i + 1,
+      title: question.title,
+      description: question.description,
+      buttons: question.buttons
+    })
+  )
+})
+
+$('a').on('click', e => {
+  const target = e.target
+  const id = urlHash(target.href)
+
+  $('.current').removeClass('current')
+  target.classList.add('current')
+
+  $('.active').removeClass('active')
+  $(id)[0].classList.add('active')
+})
