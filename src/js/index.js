@@ -26,12 +26,19 @@ questions.forEach((question, i) => {
 })
 
 $('a').on('click', e => {
+  // return false
   const target = e.target
   const id = urlHash(target.href)
 
   $('.current').removeClass('current')
-  target.classList.add('current')
+  target.parentNode.classList.add('current')
 
   $('.active').removeClass('active')
   $(id)[0].classList.add('active')
+})
+
+$(window).on('load', () => {
+  if (urlHash(location.href)) {
+    location.href = ''
+  }
 })
