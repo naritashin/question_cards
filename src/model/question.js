@@ -4,27 +4,27 @@ export default {
     dianosisAnswers: [
       {
         questionNumber: 1,
-        answer: 0,
+        answer: undefined,
         unitType: '000000'
       },
       {
         questionNumber: 2,
-        answer: 0,
+        answer: undefined,
         unitType: '000000'
       },
       {
         questionNumber: 3,
-        answer: 0,
+        answer: undefined,
         unitType: '000100'
       },
       {
         questionNumber: 4,
-        answer: 0,
+        answer: undefined,
         unitType: '000200'
       },
       {
         questionNumber: 5,
-        answer: 0,
+        answer: undefined,
         unitType: '000000'
       }
     ]

@@ -1,0 +1,10 @@
+<article id="confirm" class="card-wrap">
+  <h2 class="card-number"></h2>
+  <h3 class="card-title">回答確認</h3>
+  <div class="card-content"></div>
+  <ul class="btn-list">
+    <% answers.forEach(function(answer, i) {%>
+    <li><div class="btn"><%= questions[i].buttons[Number(answer.answer) - 1] %></div></li>
+    <%}) %>
+  </ul>
+</article>

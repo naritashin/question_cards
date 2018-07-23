@@ -2,17 +2,20 @@ import $ from 'jquery'
 
 import 'css/app'
 import Card from 'components/organisms/Card'
+import ConfirmAnswered from 'components/organisms/ConfirmAnswered'
 import Navigation from 'components/organisms/Navigation'
 
 import questions from '../service/questions'
+import model from '../model/question'
+
+const $main = $('main')
 
 $('header').append(Navigation)
 
 questions.forEach((question, i) => {
-  $('main').append(
+  $main.append(
     Card({
       buttons: question.buttons,
-      className: i === 0 ? 'active' : '',
       description: question.description,
       idName: question.idName,
       number: i + 1,
@@ -20,6 +23,10 @@ questions.forEach((question, i) => {
     })
   )
 })
+
+$main.append(
+  ConfirmAnswered({ answers: model.dianosis.dianosisAnswers, questions })
+)
 
 $('a').on('click', e => {
   // return false
