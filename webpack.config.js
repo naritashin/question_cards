@@ -37,7 +37,11 @@ const config = {
             loader: 'postcss-loader',
             options: {
               ident: 'postcss',
-              plugins: () => [postCSSImport(), postCSSNested(), autoprefixer()]
+              plugins: () => [
+                postCSSImport(),
+                postCSSNested(),
+                autoprefixer({ browsers: 'last 2 version' })
+              ]
             }
           }
         ]
