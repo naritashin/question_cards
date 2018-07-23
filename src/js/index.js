@@ -25,10 +25,13 @@ questions.forEach((question, i) => {
 })
 
 $main.append(
-  ConfirmAnswered({ answers: model.dianosis.dianosisAnswers, questions })
+  ConfirmAnswered({
+    answers: model.dianosis.dianosisAnswers,
+    questions
+  })
 )
 
-$('a').on('click', e => {
+$('nav').on('click', 'div', e => {
   // return false
   const target = e.target
 
@@ -43,5 +46,6 @@ $('button').on('click', e => {
   $('.selected').removeClass('selected')
   target.classList.add('selected')
 
+  // $('.current').classList.add('answered')
   target.offsetParent.classList.add('answered')
 })
