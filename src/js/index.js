@@ -1,14 +1,10 @@
 import $ from 'jquery'
-import { parse } from 'url'
+
 import 'css/app'
 import Card from 'components/organisms/Card'
 import Navigation from 'components/organisms/Navigation'
 
 import questions from '../service/questions'
-
-const urlHash = href => {
-  return parse(href).hash
-}
 
 $('header').append(Navigation)
 
@@ -28,17 +24,17 @@ questions.forEach((question, i) => {
 $('a').on('click', e => {
   // return false
   const target = e.target
-  const id = urlHash(target.href)
 
   $('.current').removeClass('current')
   target.parentNode.classList.add('current')
-
-  $('.active').removeClass('active')
-  $(id)[0].classList.add('active')
 })
 
-$(window).on('load', () => {
-  if (urlHash(location.href)) {
-    location.href = ''
-  }
+$('button').on('click', e => {
+  const target = e.currentTarget
+  const answer = target.dataset.answer
+
+  $('.selected').removeClass('selected')
+  target.classList.add('selected')
+
+  target.offsetParent.classList.add('answered')
 })
