@@ -15,12 +15,12 @@ $('header').append(Navigation)
 questions.forEach((question, i) => {
   $('main').append(
     Card({
-      idName: question.idName,
+      buttons: question.buttons,
       className: i === 0 ? 'active' : '',
-      number: i + 1,
-      title: question.title,
       description: question.description,
-      buttons: question.buttons
+      idName: question.idName,
+      number: i + 1,
+      title: question.title
     })
   )
 })

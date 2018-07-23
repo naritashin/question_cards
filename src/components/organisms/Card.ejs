@@ -1,10 +1,10 @@
-<article id="<%= idName %>" class="card-wrap <%= className %>" data-question="<%= number %>">
-  <h2 class="question-number">問題 <%= number %></h2>
-  <h3 class="question-title"><%= title %></h3>
-  <div class="question-content">
+<article id="<%= idName %>" class="card-wrap <%= className %>" data-card="<%= number %>">
+  <h2 class="card-number">問題 <%= number %></h2>
+  <h3 class="card-title"><%= title %></h3>
+  <div class="card-content">
     <%= description %>
   </div>
-  <ul class="question-btn-list">
+  <ul class="btn-list">
     <% buttons.forEach(function(value, i) {%>
     <li><button data-answer="<%= i + 1 %>"><%= value %></button></li>
     <%}) %>
