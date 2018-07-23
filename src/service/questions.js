@@ -9,7 +9,7 @@ export default [
     idName: 'second',
     title: '性別',
     description: 'あなたに当てはまる性別を選択してください。',
-    buttons: ['男', '女', 'その他', '答えたくない']
+    buttons: ['男', '女', 'その他', '未回答']
   },
   {
     idName: 'third',
