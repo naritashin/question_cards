@@ -51,21 +51,22 @@ $('button').on('click', e => {
   const target = e.currentTarget
   const answer = target.dataset.answer
   const $current = $('.current')
+  const $parent = $(`#${target.offsetParent.id}`)
 
-  $(`#${target.offsetParent.id} .selected`).removeClass('selected')
+  $parent.find('.selected').removeClass('selected')
   target.classList.add('selected')
 
   $current
     .removeClass('current')
     .addClass('answered')
 
-  if ($current.index(this) < 4) {
-    $('nav .answered')
-      .last()
-      .next()
-      .addClass('current')
-  } else {
+
+  if ($current.index(this) === 4) {
     $('.nav-list').addClass('completed')
+  } else {
+    $(`[data-number="${$parent.nextAll('.card-wrap').not('.answered').data('card')}"]`)
+      .parent()
+      .addClass('current')
   }
 
   target.offsetParent.classList.add('answered')
