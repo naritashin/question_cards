@@ -1,9 +1,8 @@
-export default [
-  {
+export default [{
     idName: 'first',
     title: '年齢',
     description: 'あなたに当てはまる年齢を選択してください。',
-    buttons: ['~25', '25~30', '21~35', '36~']
+    buttons: ['~25', '26~30', '31~35', '36~']
   },
   {
     idName: 'second',
