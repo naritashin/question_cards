@@ -36,13 +36,16 @@ questions.forEach((question, i) => {
 })
 
 $('nav').on('click', 'div', e => {
-  displayLocked()
-
   const target = e.currentTarget
+  const className = target.parentNode.className
 
-  if ($('.nav-list').hasClass('completed') | target.parentNode.className.indexOf('answered') === -1) {
+  if ($('.nav-list').hasClass('completed') |
+    className.indexOf('answered') === -1 |
+    className.indexOf('current') >= 0) {
     return false
   } else {
+    displayLocked()
+
     $('.current').removeClass('current')
     target.parentNode.classList.add('current')
 
