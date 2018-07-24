@@ -32,20 +32,41 @@ $main.append(
 )
 
 $('nav').on('click', 'div', e => {
-  // return false
-  const target = e.target
+  const target = e.currentTarget
 
-  $('.current').removeClass('current')
-  target.parentNode.classList.add('current')
+  if ($('.nav-list').hasClass('completed') | target.parentNode.className.indexOf('answered') === -1) {
+    return false
+  } else {
+    $('.current').removeClass('current')
+    target.parentNode.classList.add('current')
+
+    $(`[data-card="${target.dataset.number}"]`)
+      .removeClass('answered')
+    $(`[data-card="${target.dataset.number}"]`)
+      .prevAll('.card-wrap').addClass('answered')
+  }
 })
 
 $('button').on('click', e => {
   const target = e.currentTarget
   const answer = target.dataset.answer
+  const $current = $('.current')
 
-  $('.selected').removeClass('selected')
+  $(`#${target.offsetParent.id} .selected`).removeClass('selected')
   target.classList.add('selected')
 
-  // $('.current').classList.add('answered')
+  $current
+    .removeClass('current')
+    .addClass('answered')
+
+  if ($current.index(this) < 4) {
+    $('nav .answered')
+      .last()
+      .next()
+      .addClass('current')
+  } else {
+    $('.nav-list').addClass('completed')
+  }
+
   target.offsetParent.classList.add('answered')
 })
