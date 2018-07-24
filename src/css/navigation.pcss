@@ -3,38 +3,41 @@ header {
 }
 
 .nav-list {
+  background: linear-gradient(top, #fff 45%, #000 50%, #fff 55%);
   display: grid;
-  grid-auto-columns: 30px;
+  grid-auto-columns: 40px;
   grid-auto-flow: column;
-  grid-gap: 40px;
+  grid-gap: 60px;
   margin: auto;
   text-align: center;
   width: fit-content;
   div {
-    background-color: #eee;
+    background-color: #fff;
     border-radius: 50%;
     border: 1px solid #aaa;
     box-sizing: border-box;
-    cursor: pointer;
+    cursor: default;
     font-size: 20px;
-    height: 30px;
-    line-height: 28px;
+    height: 40px;
+    line-height: 40px;
     transition: 200ms ease;
   }
   .answered {
     div {
       background-color: #00f;
       color: #fff;
+      cursor: pointer;
     }
   }
   .current {
     div {
-      background-color: #fff;
+      background-color: #eee;
       color: #000;
     }
   }
   &.completed {
     div {
+      background-color: #aaa;
       cursor: default;
     }
   }
