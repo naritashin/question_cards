@@ -40,7 +40,7 @@ $('nav').on('click', 'div', e => {
   const className = target.parentNode.className
 
   if ($('.nav-list').hasClass('completed') |
-    className.indexOf('answered') === -1 |
+    (className.indexOf('answered') === -1 && className.indexOf('active') === -1) |
     className.indexOf('current') >= 0) {
     return false
   } else {
@@ -73,6 +73,7 @@ $('button').on('click', e => {
     .removeClass('current')
     .addClass('answered')
 
+  $('.active').removeClass('active')
 
   if ($current.index(this) === 4) {
     $('.nav-list').addClass('completed')
@@ -92,6 +93,10 @@ $('button').on('click', e => {
     $(`[data-number="${$parent.nextAll('.card-wrap').not('.answered').data('card')}"]`)
       .parent()
       .addClass('current')
+
+    $current
+      .next()
+      .addClass('active')
   }
 
   target.offsetParent.classList.add('answered')
