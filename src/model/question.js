@@ -1,31 +1,25 @@
 export default {
   dianosis: {
     dianosisTypeKey: 200,
-    dianosisAnswers: [
-      {
+    dianosisAnswers: [{
         questionNumber: 1,
-        answer: undefined,
-        unitType: '000000'
+        answer: undefined
       },
       {
         questionNumber: 2,
-        answer: undefined,
-        unitType: '000000'
+        answer: undefined
       },
       {
         questionNumber: 3,
-        answer: undefined,
-        unitType: '000100'
+        answer: undefined
       },
       {
         questionNumber: 4,
-        answer: undefined,
-        unitType: '000200'
+        answer: undefined
       },
       {
         questionNumber: 5,
-        answer: undefined,
-        unitType: '000000'
+        answer: undefined
       }
     ]
   }
