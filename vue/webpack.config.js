@@ -37,12 +37,14 @@ const config = {
     })
   ],
   resolve: {
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js'
+    },
     extensions: ['.js', '.vue', '.css'],
-    modules: ['src/client']
+    modules: ['src/client', 'node_modules']
   },
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
-    port: 3030
+    contentBase: path.join(__dirname, 'dist')
   }
 }
 

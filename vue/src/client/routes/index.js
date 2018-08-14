@@ -1,6 +1,6 @@
 import First from 'components/pages/First'
 
-export const routes = [{
+export default [{
   path: '/',
   component: First
 }]

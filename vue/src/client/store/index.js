@@ -1,9 +1,14 @@
-import question from './question';
+import Vue from 'vue'
+import Vuex from 'vuex'
 
-const store = {
+import question from './question'
+
+Vue.use(Vuex)
+
+const store = new Vuex.Store({
   modules: {
     question
   }
-}
+})
 
-export default store;
+export default store
