@@ -22,6 +22,11 @@
     "postcss-loader": "^2.1.6",
     "postcss-nested": "^3.0.0",
     "url": "^0.11.0",
+    "vue": "^2.5.17",
+    "vue-loader": "14.2.3",
+    "vue-router": "^3.0.1",
+    "vue-router-sync": "^0.1.0",
+    "vuex": "^3.0.1",
     "webpack": "^4.16.1",
     "webpack-cli": "^3.1.0",
     "webpack-serve": "^2.0.2"

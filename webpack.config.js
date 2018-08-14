@@ -2,7 +2,7 @@ const path = require('path')
 const postCSSImport = require('postcss-import')
 const postCSSNested = require('postcss-nested')
 const autoprefixer = require('autoprefixer')
-const HtmlWebpacPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const config = {
@@ -13,8 +13,7 @@ const config = {
     filename: 'index.js'
   },
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.js$/,
         exclude: /node_modules/,
         use: ['babel-loader']
@@ -40,7 +39,9 @@ const config = {
               plugins: () => [
                 postCSSImport(),
                 postCSSNested(),
-                autoprefixer({ browsers: 'last 2 version' })
+                autoprefixer({
+                  browsers: 'last 2 version'
+                })
               ]
             }
           }
@@ -60,7 +61,7 @@ const config = {
     new MiniCssExtractPlugin({
       filename: 'app.css'
     }),
-    new HtmlWebpacPlugin({
+    new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.join(__dirname, 'src/components/pages/index.ejs')
     })
