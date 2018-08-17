@@ -1,0 +1,32 @@
+<template>
+  <div id="app">
+    <router-view/>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'App'
+}
+</script>
+
+<style>
+@import '~assets/css/reset.css';
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  width: 100%;
+}
+
+.disp-lock {
+  background-color: rgba(255, 255, 255, 0.5);
+  display: none;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+</style>

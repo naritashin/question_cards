@@ -4,7 +4,7 @@ import {
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import App from './App'
+import App from 'components/templates/App'
 import routes from './routes'
 import store from './store'
 
